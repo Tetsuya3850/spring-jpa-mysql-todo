@@ -3,6 +3,7 @@ package com.example.todo;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @AllArgsConstructor
@@ -14,7 +15,7 @@ public class TodoController {
 
     @PostMapping("")
     Todo saveTodo(
-            @RequestBody TodoPayload todoPayload
+            @Valid @RequestBody TodoPayload todoPayload
     ) {
         return todoService.saveTodo(todoPayload);
     }
